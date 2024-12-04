@@ -193,8 +193,53 @@ class GCodeAnalyze:
                 pa=round((pa+self.stepPA)*1000)/1000
                 idx=idx-1
         self.instances = len(self.steps)
-
+        self.calcStep(self.startPA,self.instances*self.stepPA)
         pass
+    def askParams(self):
+        print(f"\nПараметры по умолчанию:\nСтартовый PA: {self.startPA}\nКонечный PA{self.endPA}\nШаг изменения PA: {self.stepPA}")
+        try:
+            params = int(input("Использовать параметры по умолчанию? Да - 1, нет - 0 [1]: "))
+        except:
+            params = 1
+        if(params == 0):
+            while True:
+                while True:
+                    try:
+                        pa = input(f"Введите стартовый PA [{self.startPA}]: ")
+                        if pa=="":
+                            break
+                        self.startPA=float(pa)
+                        break
+                    except:
+                        print("Неверный формат числа с плавающей точкой, введите еще раз")
+                        pass
+                while True:
+                    try:
+                        pa = float(input(f"Введите конечный PA [{self.endPA}]: "))
+                        if pa=="":
+                            break
+                        self.endPA = float(pa)
+                        break
+                    except:
+                        print("Неверный формат числа с плавающей точкой, введите еще раз")
+                        pass
+                self.calcStep(self.startPA,self.endPA)
+                print("\nВыбранные параметры")
+                print(f"Стартовый PA: {self.startPA}")
+                print(f"Конечный PA: {self.endPA}")
+                print(f"Расчетные значения PA: {self.steps}")
+                try:
+                    params = int(input("Принять эти параметры и продолжить (если нет, то повторный ввод)? Да - 1, нет - 0 [1]: "))
+                except:
+                    params = 1
+                if params == 1:
+                    break
+                
+#        pa = self.startPA
+#        for n,step in enumerate(self.steps):
+#            self.steps[n]=pa
+#            pa=round((pa+self.stepPA)*1000)/1000
+#        print(f"Steps {self.steps}")    
 
     def checkConditions(self, doNotRaise = False):
         problems = ""
