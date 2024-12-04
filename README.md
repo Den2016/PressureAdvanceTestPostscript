@@ -74,8 +74,6 @@
 
 И вот он наш победитель! Никаких пропусков, все равномерно залито
 
-![image](https://github.com/user-attachments/assets/61b2f9be-7cf3-4ec7-9260-caccf6ddbbb8)
-
 Ну и чтобы окончательно удостовериться, глянем следующего
 
 ![image](https://github.com/user-attachments/assets/70012127-6636-41ed-ac54-37db7ad501cf)
