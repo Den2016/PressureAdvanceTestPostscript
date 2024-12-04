@@ -196,7 +196,10 @@ class GCodeAnalyze:
         self.calcStep(self.startPA,self.instances*self.stepPA)
         pass
     def askParams(self):
-        print(f"\nПараметры по умолчанию:\nСтартовый PA: {self.startPA}\nКонечный PA{self.endPA}\nШаг изменения PA: {self.stepPA}")
+        print("\nПараметры по умолчанию")
+        print(f"Стартовый PA: {self.startPA}")
+        print(f"Конечный PA: {self.endPA}")
+        print(f"Расчетные значения PA: {self.steps}")
         try:
             params = int(input("Использовать параметры по умолчанию? Да - 1, нет - 0 [1]: "))
         except:
@@ -215,10 +218,10 @@ class GCodeAnalyze:
                         pass
                 while True:
                     try:
-                        pa = float(input(f"Введите конечный PA [{self.endPA}]: "))
-                        if pa=="":
+                        epa = input(f"Введите конечный PA [{self.endPA}]: ")
+                        if epa=="":
                             break
-                        self.endPA = float(pa)
+                        self.endPA = float(epa)
                         break
                     except:
                         print("Неверный формат числа с плавающей точкой, введите еще раз")
