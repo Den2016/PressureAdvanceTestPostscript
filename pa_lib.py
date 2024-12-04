@@ -339,7 +339,7 @@ class GCodeChange(object):
                                         tmp.write(Extruder.unretract())
                                         retracted = False
 
-                                    tmp.write(f"G1 X{point_x:.4f} Y{point_y:.4f} E{lE} \n")
+                                    tmp.write(f"G1 X{point_x:.4f} Y{point_y:.4f} E{lE} F1200\n")
                                 else:
                                     #retract
                                     if(not retracted): tmp.write(Extruder.retract())

@@ -8,6 +8,8 @@ endPA = 0.15
 file_names = []
 for file_name in [f for f in os.listdir('input\\') if f.endswith(".gcode")]:
     file_names.append(file_name)
+for n, file in enumerate(file_names):
+    print (str(n)+" - "+file.split('.ini')[0])
 
 if(len(file_names)==0):
     print("Нет файлов для выбора")
@@ -24,7 +26,7 @@ Extruder = pa_lib.Extruder()
 
 # анализ файла и выбор параметров
 
-GcA.file_input = file_input
+GcA.file_input = 'input\\'+file_input
 GcA.analyzeFile()
 GcA.checkConditions()
 GcA.calcStep(startPA,endPA)
