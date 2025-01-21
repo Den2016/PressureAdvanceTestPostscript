@@ -1,5 +1,6 @@
 import math
 import re
+import io
 
 
 class Extruder(object):
@@ -99,7 +100,7 @@ class GCodeAnalyze:
         currentZ = ";Z:0"
         infill = False
         self.infillLayers = []
-        with open(self.file_input) as file:											# Открытие файла с g-кодом
+        with io.open(self.file_input, encoding='utf-8') as file:											# Открытие файла с g-кодом
             instance = -1
             for line in file:
                 # проверяем на объект
@@ -299,7 +300,7 @@ class GCodeChange(object):
         digitsWrited = False
         waitNoInfillLayer = True
 
-        with open(GcA.file_input) as file:											# Открытие файла с g-кодом
+        with io.open(GcA.file_input, encoding='utf-8') as file:											# Открытие файла с g-кодом
             waitDigitLayer = True # ждем слоя, на котором будем рисовать цифры
             for line in file:
                 tmp.write(line)			

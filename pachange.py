@@ -15,7 +15,7 @@ if(len(file_names)==0):
     print("Нет файлов для выбора")
     raise SystemExit
 if(len(file_names)==1):
-    file_input = 'input\\'+file_names[0]
+    file_input = file_names[0]
     print("Найден один файл для обработки")
     print(file_input)
 else:
